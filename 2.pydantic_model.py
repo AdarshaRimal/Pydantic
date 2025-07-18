@@ -1,12 +1,12 @@
 from pydantic import BaseModel
-from typing import List,Dict
+from typing import List,Dict,Optional
 # step 1 : defining pydantic model
 class Patient(BaseModel):
     name : str
     age : int
     weight : float
-    married : bool
-    tests : List[str] #List instead of list for double type validation all values in the list should be string
+    married : bool = False
+    tests : Optional[List[str]] = None #List instead of list for double type validation all values in the list should be string
     contact : Dict[str,str] #both key and value in the dict should be string
 
 # defining insert function
